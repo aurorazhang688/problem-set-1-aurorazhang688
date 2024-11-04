@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Huiting Zhang">
+<meta name="dcterms.date" content="2024-10-05">
+
+<title>PS1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="ps1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ps1_files/libs/quarto-html/quarto.js"></script>
+<script src="ps1_files/libs/quarto-html/popper.min.js"></script>
+<script src="ps1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="ps1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="ps1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ps1_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="ps1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="ps1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="ps1_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#read-in-one-percent-sample-15-points" id="toc-read-in-one-percent-sample-15-points" class="nav-link active" data-scroll-target="#read-in-one-percent-sample-15-points">Read in one percent sample (15 Points)</a></li>
+  <li><a href="#cleaning-the-data-and-benchmarking-15-points" id="toc-cleaning-the-data-and-benchmarking-15-points" class="nav-link" data-scroll-target="#cleaning-the-data-and-benchmarking-15-points">Cleaning the data and benchmarking (15 Points)</a></li>
+  <li><a href="#visual-encoding-15-points" id="toc-visual-encoding-15-points" class="nav-link" data-scroll-target="#visual-encoding-15-points">Visual Encoding (15 Points)</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PS1</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Huiting Zhang </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 5, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<ol type="1">
+<li><strong>PS1:</strong> Due Sat Oct 5 at 5:00PM Central. Worth 50 points. Initiate your <strong><a href="https://classroom.github.com/a/uhUVze3Y">repo</a></strong></li>
+</ol>
+<p>We use (<code>*</code>) to indicate a problem that we think might be time consuming.</p>
+<ol type="1">
+<li>“This submission is my work alone and complies with the 30538 integrity policy.” Add your initials to indicate your agreement: **_HZ_**</li>
+<li>“I have uploaded the names of anyone I worked with on the problem set <strong><a href="https://docs.google.com/forms/d/1-zzHx762odGlpVWtgdIC55vqF-j3gqdAp6Pno1rIGK0/edit">here</a></strong>” **_HZ_** (1 point)</li>
+<li>Late coins used this pset: **_1_** Late coins left after submission: **_3_**</li>
+<li>Knit your <code>ps1.qmd</code> to make <code>ps1.pdf</code>.
+<ul>
+<li>The PDF should not be more than 25 pages. Use <code>head()</code> and re-size figures when appropriate.</li>
+</ul></li>
+<li>Push <code>ps1.qmd</code> and <code>ps1.pdf</code> to your github repo. It is fine to use Github Desktop.</li>
+<li>Submit <code>ps1.pdf</code> via Gradescope (4 points)</li>
+<li>Tag your submission in Gradescope</li>
+</ol>
+<section id="read-in-one-percent-sample-15-points" class="level2">
+<h2 class="anchored" data-anchor-id="read-in-one-percent-sample-15-points">Read in one percent sample (15 Points)</h2>
+<ol type="1">
+<li></li>
+</ol>
+<div id="21b4c92f" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>start <span class="op">=</span> time.time()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'F:\python2\ppha30538_fall2024\problem_sets\ps1\data/parking_tickets_one_percent.csv'</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>parking_tickets <span class="op">=</span> pd.read_csv(file_path)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>end <span class="op">=</span> time.time()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>read <span class="op">=</span> end <span class="op">-</span> start</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">len</span>(parking_tickets) <span class="op">==</span> <span class="dv">287458</span>, <span class="ss">f"Expected to have 287458 rows, but got </span><span class="sc">{</span><span class="bu">len</span>(parking_tickets)<span class="sc">}</span><span class="ss">."</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Time to read file: </span><span class="sc">{</span>read<span class="sc">}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time to read file: 1.8747379779815674 seconds</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\Aurora\AppData\Local\Temp\ipykernel_19484\3830576770.py:7: DtypeWarning:
+
+Columns (7) have mixed types. Specify dtype option on import or set low_memory=False.
+</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<div id="8387468d" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>sample_size_bytes <span class="op">=</span> os.path.getsize(file_path)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>sample_size_mb <span class="op">=</span> sample_size_bytes <span class="op">/</span> (<span class="dv">1024</span> <span class="op">*</span> <span class="dv">1024</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>full_size_mb <span class="op">=</span> sample_size_mb <span class="op">/</span> <span class="fl">0.01</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sample size: </span><span class="sc">{</span>sample_size_mb<span class="sc">}</span><span class="ss"> MB"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Predicted full dataset size: </span><span class="sc">{</span>full_size_mb<span class="sc">}</span><span class="ss"> MB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sample size: 80.05409908294678 MB
+Predicted full dataset size: 8005.409908294678 MB</code></pre>
+</div>
+</div>
+<ol start="3" type="1">
+<li></li>
+</ol>
+<div id="4176505c" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>parking_tickets.head()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The rows on the dataset are ordered or sorted by "issue_date" column.</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>first_500 <span class="op">=</span> parking_tickets.head(<span class="dv">500</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>default_order_column <span class="op">=</span> first_500.columns[<span class="dv">2</span>]</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_ordered(column):</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> column.is_monotonic_increasing</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>column_ordered <span class="op">=</span> is_ordered(first_500[default_order_column])</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Default ordered column: </span><span class="sc">{</span>default_order_column<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Whether the column is ordered: </span><span class="sc">{</span>column_ordered<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Default ordered column: issue_date
+Whether the column is ordered: True</code></pre>
+</div>
+</div>
+</section>
+<section id="cleaning-the-data-and-benchmarking-15-points" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-the-data-and-benchmarking-15-points">Cleaning the data and benchmarking (15 Points)</h2>
+<ol type="1">
+<li></li>
+</ol>
+<div id="af209944" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>parking_tickets[<span class="st">'issue_date'</span>] <span class="op">=</span> pd.to_datetime(parking_tickets[<span class="st">'issue_date'</span>])  </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>tickets_2017 <span class="op">=</span> parking_tickets[parking_tickets[<span class="st">'issue_date'</span>].dt.year <span class="op">==</span> <span class="dv">2017</span>]  </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>sample_tickets_2017 <span class="op">=</span> <span class="bu">len</span>(tickets_2017)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of tickets in the sample issued in 2017: </span><span class="sc">{</span>sample_tickets_2017<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>full_tickets_2017 <span class="op">=</span> sample_tickets_2017 <span class="op">*</span> <span class="dv">100</span>  </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Estimated number of tickets in the full dataset issued in 2017 : </span><span class="sc">{</span>full_tickets_2017<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of tickets in the sample issued in 2017: 22364
+Estimated number of tickets in the full dataset issued in 2017 : 2236400</code></pre>
+</div>
+</div>
+<p>The number of tickets issued in 2017 in the sample is 22,364, which leads to an estimated 2,236,400 tickets in the full dataset. According to ProPublica, Chicago issues around 3 million tickets annually. This indicates a significant difference, as the estimated 2.24 million tickets are about 25% less than the 3 million reported by ProPublica.</p>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<div id="21d02882" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>top_violations <span class="op">=</span> parking_tickets[<span class="st">'violation_description'</span>].value_counts().head(<span class="dv">20</span>).reset_index()</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>top_violations.columns <span class="op">=</span> [<span class="st">'violation_description'</span>, <span class="st">'count'</span>]</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>alt.Chart(top_violations).mark_bar().encode(</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">'count:Q'</span>, title<span class="op">=</span><span class="st">'Frequency'</span>),</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>alt.Y(<span class="st">'violation_description:N'</span>, sort<span class="op">=</span><span class="st">'-x'</span>, title<span class="op">=</span><span class="st">'Violation Description'</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>            axis<span class="op">=</span>alt.Axis(labelFontSize<span class="op">=</span><span class="dv">7</span>),</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>          ),</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">'Top 20 Most Frequent Violation Types'</span>,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="dv">600</span>,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">400</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+
+<style>
+  #altair-viz-a10d20398c294d93aefe7b3aa2cdf3a1.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-a10d20398c294d93aefe7b3aa2cdf3a1.vega-embed details,
+  #altair-viz-a10d20398c294d93aefe7b3aa2cdf3a1.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-a10d20398c294d93aefe7b3aa2cdf3a1"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-a10d20398c294d93aefe7b3aa2cdf3a1") {
+      outputDiv = document.getElementById("altair-viz-a10d20398c294d93aefe7b3aa2cdf3a1");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.20.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.20.1"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-27afc7ee9a3e4f9cb3b215ed5352d7db"}, "mark": {"type": "bar"}, "encoding": {"x": {"field": "count", "title": "Frequency", "type": "quantitative"}, "y": {"axis": {"labelFontSize": 7}, "field": "violation_description", "sort": "-x", "title": "Violation Description", "type": "nominal"}}, "height": 400, "title": "Top 20 Most Frequent Violation Types", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-27afc7ee9a3e4f9cb3b215ed5352d7db": [{"violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "count": 44811}, {"violation_description": "STREET CLEANING", "count": 28712}, {"violation_description": "RESIDENTIAL PERMIT PARKING", "count": 23683}, {"violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "count": 20600}, {"violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "count": 19753}, {"violation_description": "EXPIRED METER OR OVERSTAY", "count": 18756}, {"violation_description": "REAR AND FRONT PLATE REQUIRED", "count": 15829}, {"violation_description": "NO CITY STICKER VEHICLE UNDER/EQUAL TO 16,000 LBS.", "count": 14246}, {"violation_description": "RUSH HOUR PARKING", "count": 11965}, {"violation_description": "NO CITY STICKER OR IMPROPER DISPLAY", "count": 10773}, {"violation_description": "EXPIRED METER CENTRAL BUSINESS DISTRICT", "count": 9736}, {"violation_description": "NO STANDING/PARKING TIME RESTRICTED", "count": 8640}, {"violation_description": "WITHIN 15' OF FIRE HYDRANT", "count": 6104}, {"violation_description": "PARK OR STAND IN BUS/TAXI/CARRIAGE STAND", "count": 6004}, {"violation_description": "TRUCK,RV,BUS, OR TAXI RESIDENTIAL STREET", "count": 4789}, {"violation_description": "STREET CLEANING OR SPECIAL EVENT", "count": 3370}, {"violation_description": "DOUBLE PARKING OR STANDING", "count": 2904}, {"violation_description": "EXPIRED PLATE OR TEMPORARY REGISTRATION", "count": 2720}, {"violation_description": "STOP SIGN OR TRAFFIC SIGNAL", "count": 2191}, {"violation_description": "PARK OR BLOCK ALLEY", "count": 2050}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+</section>
+<section id="visual-encoding-15-points" class="level2">
+<h2 class="anchored" data-anchor-id="visual-encoding-15-points">Visual Encoding (15 Points)</h2>
+<ol type="1">
+<li></li>
+</ol>
+<div id="204fe55f" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Variable Name'</span>: [</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">'ticket_number'</span>, <span class="st">'issue_date'</span>, <span class="st">'violation_location'</span>, <span class="st">'license_plate_number'</span>, <span class="st">'license_plate_state'</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'license_plate_type'</span>, <span class="st">'zipcode'</span>, <span class="st">'violation_code'</span>, <span class="st">'violation_description'</span>, <span class="st">'unit'</span>, </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'unit_description'</span>, <span class="st">'vehicle_make'</span>, <span class="st">'fine_level1_amount'</span>, <span class="st">'fine_level2_amount'</span>, </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">'current_amount_due'</span>, <span class="st">'total_payments'</span>, <span class="st">'ticket_queue'</span>, <span class="st">'ticket_queue_date'</span>, </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">'notice_level'</span>, <span class="st">'hearing_disposition'</span>, <span class="st">'notice_number'</span>, <span class="st">'officer'</span>, <span class="st">'address'</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Altair Data Type'</span>: [</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Nominal'</span>, <span class="st">'Temporal'</span>, <span class="st">'Nominal'</span>, <span class="st">'Nominal'</span>, <span class="st">'Nominal'</span>, </span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Nominal'</span>, <span class="st">'Nominal'</span>, <span class="st">'Nominal'</span>, <span class="st">'Nominal'</span>, <span class="st">'Nominal'</span>, </span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Nominal'</span>, <span class="st">'Nominal'</span>, <span class="st">'Quantitative'</span>, <span class="st">'Quantitative'</span>, </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Quantitative'</span>, <span class="st">'Quantitative'</span>, <span class="st">'Nominal'</span>, <span class="st">'Temporal'</span>, </span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Ordinal'</span>, <span class="st">'Nominal'</span>, <span class="st">'Nominal'</span>, <span class="st">'Nominal'</span>, <span class="st">'Nominal'</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Variable Name</th>
+<th data-quarto-table-cell-role="th">Altair Data Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>ticket_number</td>
+<td>Nominal</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>issue_date</td>
+<td>Temporal</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>violation_location</td>
+<td>Nominal</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>license_plate_number</td>
+<td>Nominal</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>license_plate_state</td>
+<td>Nominal</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>license_plate_type</td>
+<td>Nominal</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>zipcode</td>
+<td>Nominal</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>violation_code</td>
+<td>Nominal</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>violation_description</td>
+<td>Nominal</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>unit</td>
+<td>Nominal</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>unit_description</td>
+<td>Nominal</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>vehicle_make</td>
+<td>Nominal</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>fine_level1_amount</td>
+<td>Quantitative</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>fine_level2_amount</td>
+<td>Quantitative</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>current_amount_due</td>
+<td>Quantitative</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>total_payments</td>
+<td>Quantitative</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>ticket_queue</td>
+<td>Nominal</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>ticket_queue_date</td>
+<td>Temporal</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>notice_level</td>
+<td>Ordinal</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>hearing_disposition</td>
+<td>Nominal</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>notice_number</td>
+<td>Nominal</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>officer</td>
+<td>Nominal</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>address</td>
+<td>Nominal</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<div id="f8f178cf" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>paid_fractions <span class="op">=</span> parking_tickets.groupby(<span class="st">'vehicle_make'</span>).<span class="bu">apply</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">lambda</span> x: (x[<span class="st">'ticket_queue'</span>] <span class="op">==</span> <span class="st">'Paid'</span>).<span class="bu">sum</span>() <span class="op">/</span> <span class="bu">len</span>(x)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>).reset_index(name<span class="op">=</span><span class="st">'paid_fraction'</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>alt.Chart(paid_fractions).mark_bar().encode(</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">'vehicle_make:N'</span>, sort<span class="op">=</span><span class="st">'-y'</span>),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>alt.Y(<span class="st">'paid_fraction:Q'</span>, title<span class="op">=</span><span class="st">'fraction of Paid Tickets'</span>),</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">'Fraction of Paid Tickets by Vehicle Make'</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>).configure_axisX(</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    labelAngle<span class="op">=-</span><span class="dv">45</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+
+<style>
+  #altair-viz-9267b7dd70b041fcbf1d3a5fae1c3492.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-9267b7dd70b041fcbf1d3a5fae1c3492.vega-embed details,
+  #altair-viz-9267b7dd70b041fcbf1d3a5fae1c3492.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-9267b7dd70b041fcbf1d3a5fae1c3492"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-9267b7dd70b041fcbf1d3a5fae1c3492") {
+      outputDiv = document.getElementById("altair-viz-9267b7dd70b041fcbf1d3a5fae1c3492");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.20.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.20.1"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "axisX": {"labelAngle": -45}}, "data": {"name": "data-a63f04b548dae3bfc3f355742564a885"}, "mark": {"type": "bar"}, "encoding": {"x": {"field": "vehicle_make", "sort": "-y", "type": "nominal"}, "y": {"field": "paid_fraction", "title": "fraction of Paid Tickets", "type": "quantitative"}}, "title": "Fraction of Paid Tickets by Vehicle Make", "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-a63f04b548dae3bfc3f355742564a885": [{"vehicle_make": "ACUR", "paid_fraction": 0.7320227625452664}, {"vehicle_make": "ALFA", "paid_fraction": 0.75}, {"vehicle_make": "AMER", "paid_fraction": 0.6666666666666666}, {"vehicle_make": "APRL", "paid_fraction": 0.5}, {"vehicle_make": "ASTO", "paid_fraction": 1.0}, {"vehicle_make": "AUDI", "paid_fraction": 0.7634953772740829}, {"vehicle_make": "AUST", "paid_fraction": 0.5}, {"vehicle_make": "BAJA", "paid_fraction": 0.5}, {"vehicle_make": "BENE", "paid_fraction": 0.0}, {"vehicle_make": "BENT", "paid_fraction": 0.7285714285714285}, {"vehicle_make": "BMW", "paid_fraction": 0.7428896473265074}, {"vehicle_make": "BRDL", "paid_fraction": 1.0}, {"vehicle_make": "BUEL", "paid_fraction": 0.25}, {"vehicle_make": "BUIC", "paid_fraction": 0.5474240422721268}, {"vehicle_make": "CADI", "paid_fraction": 0.5985448320136957}, {"vehicle_make": "CAP", "paid_fraction": 0.0}, {"vehicle_make": "CHEC", "paid_fraction": 0.30434782608695654}, {"vehicle_make": "CHEV", "paid_fraction": 0.6193836926735949}, {"vehicle_make": "CHRY", "paid_fraction": 0.6083880097774347}, {"vehicle_make": "CITR", "paid_fraction": 0.0}, {"vehicle_make": "DAEW", "paid_fraction": 0.5641025641025641}, {"vehicle_make": "DAIH", "paid_fraction": 0.0}, {"vehicle_make": "DATS", "paid_fraction": 0.5}, {"vehicle_make": "DERB", "paid_fraction": 1.0}, {"vehicle_make": "DODG", "paid_fraction": 0.610713607294371}, {"vehicle_make": "DUCA", "paid_fraction": 0.6}, {"vehicle_make": "EGIL", "paid_fraction": 0.5454545454545454}, {"vehicle_make": "FERR", "paid_fraction": 0.5555555555555556}, {"vehicle_make": "FIAT", "paid_fraction": 0.7583333333333333}, {"vehicle_make": "FLNR", "paid_fraction": 0.6277955271565495}, {"vehicle_make": "FORD", "paid_fraction": 0.6385325230699977}, {"vehicle_make": "FTWD", "paid_fraction": 0.6666666666666666}, {"vehicle_make": "GELY", "paid_fraction": 0.4}, {"vehicle_make": "GENU", "paid_fraction": 0.6379310344827587}, {"vehicle_make": "GEO", "paid_fraction": 0.6915167095115681}, {"vehicle_make": "GMC", "paid_fraction": 0.6372602739726028}, {"vehicle_make": "GUST", "paid_fraction": 0.0}, {"vehicle_make": "HARL", "paid_fraction": 0.5656565656565656}, {"vehicle_make": "HINO", "paid_fraction": 0.6781609195402298}, {"vehicle_make": "HOND", "paid_fraction": 0.7529757670602741}, {"vehicle_make": "HUDS", "paid_fraction": 0.0}, {"vehicle_make": "HUMM", "paid_fraction": 0.7318007662835249}, {"vehicle_make": "HYUN", "paid_fraction": 0.7094042056074766}, {"vehicle_make": "IND", "paid_fraction": 0.5555555555555556}, {"vehicle_make": "INFI", "paid_fraction": 0.7105675760426466}, {"vehicle_make": "INTL", "paid_fraction": 0.6274509803921569}, {"vehicle_make": "ISU", "paid_fraction": 0.6697986577181209}, {"vehicle_make": "JAGU", "paid_fraction": 0.6591511936339522}, {"vehicle_make": "JEEP", "paid_fraction": 0.7269297736506094}, {"vehicle_make": "JMST", "paid_fraction": 0.0}, {"vehicle_make": "KAWA", "paid_fraction": 0.4235294117647059}, {"vehicle_make": "KENW", "paid_fraction": 0.5692307692307692}, {"vehicle_make": "KIA", "paid_fraction": 0.6989609660207807}, {"vehicle_make": "KYMC", "paid_fraction": 0.5428571428571428}, {"vehicle_make": "LAMO", "paid_fraction": 0.6}, {"vehicle_make": "LCE", "paid_fraction": 0.18181818181818182}, {"vehicle_make": "LEXU", "paid_fraction": 0.7717078780908568}, {"vehicle_make": "LINC", "paid_fraction": 0.5705218617771509}, {"vehicle_make": "LING", "paid_fraction": 0.5}, {"vehicle_make": "LNCI", "paid_fraction": 0.0}, {"vehicle_make": "LNDR", "paid_fraction": 0.7032967032967034}, {"vehicle_make": "LONT", "paid_fraction": 0.0}, {"vehicle_make": "LOTU", "paid_fraction": 0.8}, {"vehicle_make": "MACK", "paid_fraction": 0.4857142857142857}, {"vehicle_make": "MASE", "paid_fraction": 0.8133333333333334}, {"vehicle_make": "MAZD", "paid_fraction": 0.729649840836744}, {"vehicle_make": "MCIN", "paid_fraction": 0.0}, {"vehicle_make": "MERC", "paid_fraction": 0.6037256562235394}, {"vehicle_make": "MERK", "paid_fraction": 0.21428571428571427}, {"vehicle_make": "MERZ", "paid_fraction": 0.7443668993020938}, {"vehicle_make": "MG", "paid_fraction": 1.0}, {"vehicle_make": "MILA", "paid_fraction": 0.3333333333333333}, {"vehicle_make": "MINI", "paid_fraction": 0.8203883495145631}, {"vehicle_make": "MITS", "paid_fraction": 0.7145106271319863}, {"vehicle_make": "MOGU", "paid_fraction": 0.0}, {"vehicle_make": "MTCH", "paid_fraction": 0.0}, {"vehicle_make": "NISS", "paid_fraction": 0.7059129831057626}, {"vehicle_make": "OLDS", "paid_fraction": 0.5253981919931123}, {"vehicle_make": "OTHR", "paid_fraction": 0.649402390438247}, {"vehicle_make": "PACK", "paid_fraction": 0.0}, {"vehicle_make": "PCNS", "paid_fraction": 0.0}, {"vehicle_make": "PEIR", "paid_fraction": 1.0}, {"vehicle_make": "PETR", "paid_fraction": 0.6363636363636364}, {"vehicle_make": "PIAG", "paid_fraction": 0.7777777777777778}, {"vehicle_make": "PLYM", "paid_fraction": 0.5743464052287581}, {"vehicle_make": "POLS", "paid_fraction": 0.16666666666666666}, {"vehicle_make": "PONT", "paid_fraction": 0.5827115559599636}, {"vehicle_make": "PORS", "paid_fraction": 0.782258064516129}, {"vehicle_make": "PREO", "paid_fraction": 1.0}, {"vehicle_make": "PTRB", "paid_fraction": 0.3}, {"vehicle_make": "RAMB", "paid_fraction": 0.3333333333333333}, {"vehicle_make": "RENU", "paid_fraction": 0.0}, {"vehicle_make": "ROKE", "paid_fraction": 0.6666666666666666}, {"vehicle_make": "ROKW", "paid_fraction": 0.0}, {"vehicle_make": "ROL", "paid_fraction": 0.38461538461538464}, {"vehicle_make": "ROV", "paid_fraction": 0.7468354430379747}, {"vehicle_make": "RROV", "paid_fraction": 0.7709923664122137}, {"vehicle_make": "SAAB", "paid_fraction": 0.7397408207343412}, {"vehicle_make": "SANY", "paid_fraction": 1.0}, {"vehicle_make": "SATR", "paid_fraction": 0.6874435411020777}, {"vehicle_make": "SCHW", "paid_fraction": 0.16666666666666666}, {"vehicle_make": "SCIO", "paid_fraction": 0.7829747427502338}, {"vehicle_make": "SMRT", "paid_fraction": 0.8085106382978723}, {"vehicle_make": "SPEC", "paid_fraction": 0.2}, {"vehicle_make": "SPNT", "paid_fraction": 0.6666666666666666}, {"vehicle_make": "STOU", "paid_fraction": 0.0}, {"vehicle_make": "STRG", "paid_fraction": 0.48717948717948717}, {"vehicle_make": "SUBA", "paid_fraction": 0.778778386844166}, {"vehicle_make": "SUZI", "paid_fraction": 0.6998892580287929}, {"vehicle_make": "SYMP", "paid_fraction": 1.0}, {"vehicle_make": "TAIZ", "paid_fraction": 0.0}, {"vehicle_make": "TAOT", "paid_fraction": 0.0}, {"vehicle_make": "TESL", "paid_fraction": 0.7142857142857143}, {"vehicle_make": "THMP", "paid_fraction": 0.6666666666666666}, {"vehicle_make": "TOMO", "paid_fraction": 1.0}, {"vehicle_make": "TOYT", "paid_fraction": 0.7483677910772579}, {"vehicle_make": "TRAL", "paid_fraction": 0.38636363636363635}, {"vehicle_make": "TRIU", "paid_fraction": 0.5555555555555556}, {"vehicle_make": "UNKN", "paid_fraction": 0.6421052631578947}, {"vehicle_make": "VESP", "paid_fraction": 0.5576923076923077}, {"vehicle_make": "VICY", "paid_fraction": 0.0}, {"vehicle_make": "VIKI", "paid_fraction": 0.0}, {"vehicle_make": "VNTO", "paid_fraction": 0.0}, {"vehicle_make": "VOLK", "paid_fraction": 0.7568202584518993}, {"vehicle_make": "VOLV", "paid_fraction": 0.7481060606060606}, {"vehicle_make": "VPGP", "paid_fraction": 0.5}, {"vehicle_make": "WHIT", "paid_fraction": 1.0}, {"vehicle_make": "WILS", "paid_fraction": 1.0}, {"vehicle_make": "WORH", "paid_fraction": 0.16666666666666666}, {"vehicle_make": "WSTR", "paid_fraction": 0.0}, {"vehicle_make": "YAMA", "paid_fraction": 0.5037593984962406}, {"vehicle_make": "YUGO", "paid_fraction": 0.5}, {"vehicle_make": "ZNEN", "paid_fraction": 1.0}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+<ol start="3" type="1">
+<li></li>
+</ol>
+<div id="b0825161" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>parking_tickets[<span class="st">'issue_date'</span>] <span class="op">=</span> pd.to_datetime(parking_tickets[<span class="st">'issue_date'</span>])  </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>parking_tickets[<span class="st">'year'</span>] <span class="op">=</span> parking_tickets[<span class="st">'issue_date'</span>].dt.year </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>tickets_per_year <span class="op">=</span> parking_tickets.groupby(<span class="st">'year'</span>).size().reset_index(name<span class="op">=</span><span class="st">'tickets_number'</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>alt.Chart(tickets_per_year).mark_area(</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"lightblue"</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    interpolate<span class="op">=</span><span class="st">'step-after'</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    line<span class="op">=</span><span class="va">True</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>).encode(</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'year'</span>,</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'tickets_number'</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+
+<style>
+  #altair-viz-e1411f2271e2488ea7709e704101df36.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-e1411f2271e2488ea7709e704101df36.vega-embed details,
+  #altair-viz-e1411f2271e2488ea7709e704101df36.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-e1411f2271e2488ea7709e704101df36"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-e1411f2271e2488ea7709e704101df36") {
+      outputDiv = document.getElementById("altair-viz-e1411f2271e2488ea7709e704101df36");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.20.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.20.1"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-a068f39f54de65f3069a55265a3d92b1"}, "mark": {"type": "area", "color": "lightblue", "interpolate": "step-after", "line": true}, "encoding": {"x": {"field": "year", "type": "quantitative"}, "y": {"field": "tickets_number", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-a068f39f54de65f3069a55265a3d92b1": [{"year": 2007, "tickets_number": 29252}, {"year": 2008, "tickets_number": 28713}, {"year": 2009, "tickets_number": 27335}, {"year": 2010, "tickets_number": 25324}, {"year": 2011, "tickets_number": 24898}, {"year": 2012, "tickets_number": 24406}, {"year": 2013, "tickets_number": 25983}, {"year": 2014, "tickets_number": 24552}, {"year": 2015, "tickets_number": 24227}, {"year": 2016, "tickets_number": 22643}, {"year": 2017, "tickets_number": 22364}, {"year": 2018, "tickets_number": 7761}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+<ol start="4" type="1">
+<li></li>
+</ol>
+<div id="480c5d56" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>parking_tickets[<span class="st">'month'</span>] <span class="op">=</span> parking_tickets[<span class="st">'issue_date'</span>].dt.month</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>parking_tickets[<span class="st">'day'</span>] <span class="op">=</span> parking_tickets[<span class="st">'issue_date'</span>].dt.day</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>tickets_by_day_month <span class="op">=</span> parking_tickets.groupby([<span class="st">'month'</span>, <span class="st">'day'</span>]).size().reset_index(name<span class="op">=</span><span class="st">'tickets_number'</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>alt.Chart(tickets_by_day_month, title<span class="op">=</span><span class="st">"Tickets Issued by Month and Day"</span>).mark_rect().encode(</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    alt.X(<span class="st">'day:O'</span>).title(<span class="st">"Day"</span>),</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    alt.Y(<span class="st">'month:O'</span>).title(<span class="st">"Month"</span>),</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    alt.Color(<span class="st">'tickets_number:Q'</span>).title(<span class="st">"Number of Tickets"</span>),</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        alt.Tooltip(<span class="st">'day:O'</span>, title<span class="op">=</span><span class="st">"Day"</span>),</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>        alt.Tooltip(<span class="st">'month:O'</span>, title<span class="op">=</span><span class="st">"Month"</span>),</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>        alt.Tooltip(<span class="st">'tickets_number:Q'</span>, title<span class="op">=</span><span class="st">"Number of Tickets"</span>)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>).configure_view(</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    step<span class="op">=</span><span class="dv">13</span>,</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    strokeWidth<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>).configure_axis(</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    domain<span class="op">=</span><span class="va">False</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+
+<style>
+  #altair-viz-5cd2d81ee6d94180963ab4f51743d9cf.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-5cd2d81ee6d94180963ab4f51743d9cf.vega-embed details,
+  #altair-viz-5cd2d81ee6d94180963ab4f51743d9cf.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-5cd2d81ee6d94180963ab4f51743d9cf"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-5cd2d81ee6d94180963ab4f51743d9cf") {
+      outputDiv = document.getElementById("altair-viz-5cd2d81ee6d94180963ab4f51743d9cf");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.20.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.20.1"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "step": 13, "strokeWidth": 0}, "axis": {"domain": false}}, "data": {"name": "data-533a719c0ab8b42376958e172f3df43a"}, "mark": {"type": "rect"}, "encoding": {"color": {"field": "tickets_number", "title": "Number of Tickets", "type": "quantitative"}, "tooltip": [{"field": "day", "title": "Day", "type": "ordinal"}, {"field": "month", "title": "Month", "type": "ordinal"}, {"field": "tickets_number", "title": "Number of Tickets", "type": "quantitative"}], "x": {"field": "day", "title": "Day", "type": "ordinal"}, "y": {"field": "month", "title": "Month", "type": "ordinal"}}, "title": "Tickets Issued by Month and Day", "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-533a719c0ab8b42376958e172f3df43a": [{"month": 1, "day": 1, "tickets_number": 559}, {"month": 1, "day": 2, "tickets_number": 780}, {"month": 1, "day": 3, "tickets_number": 860}, {"month": 1, "day": 4, "tickets_number": 876}, {"month": 1, "day": 5, "tickets_number": 836}, {"month": 1, "day": 6, "tickets_number": 710}, {"month": 1, "day": 7, "tickets_number": 704}, {"month": 1, "day": 8, "tickets_number": 769}, {"month": 1, "day": 9, "tickets_number": 781}, {"month": 1, "day": 10, "tickets_number": 850}, {"month": 1, "day": 11, "tickets_number": 812}, {"month": 1, "day": 12, "tickets_number": 846}, {"month": 1, "day": 13, "tickets_number": 754}, {"month": 1, "day": 14, "tickets_number": 749}, {"month": 1, "day": 15, "tickets_number": 770}, {"month": 1, "day": 16, "tickets_number": 677}, {"month": 1, "day": 17, "tickets_number": 719}, {"month": 1, "day": 18, "tickets_number": 708}, {"month": 1, "day": 19, "tickets_number": 734}, {"month": 1, "day": 20, "tickets_number": 677}, {"month": 1, "day": 21, "tickets_number": 697}, {"month": 1, "day": 22, "tickets_number": 746}, {"month": 1, "day": 23, "tickets_number": 740}, {"month": 1, "day": 24, "tickets_number": 709}, {"month": 1, "day": 25, "tickets_number": 802}, {"month": 1, "day": 26, "tickets_number": 738}, {"month": 1, "day": 27, "tickets_number": 703}, {"month": 1, "day": 28, "tickets_number": 749}, {"month": 1, "day": 29, "tickets_number": 766}, {"month": 1, "day": 30, "tickets_number": 786}, {"month": 1, "day": 31, "tickets_number": 708}, {"month": 2, "day": 1, "tickets_number": 731}, {"month": 2, "day": 2, "tickets_number": 672}, {"month": 2, "day": 3, "tickets_number": 742}, {"month": 2, "day": 4, "tickets_number": 664}, {"month": 2, "day": 5, "tickets_number": 690}, {"month": 2, "day": 6, "tickets_number": 658}, {"month": 2, "day": 7, "tickets_number": 714}, {"month": 2, "day": 8, "tickets_number": 784}, {"month": 2, "day": 9, "tickets_number": 692}, {"month": 2, "day": 10, "tickets_number": 695}, {"month": 2, "day": 11, "tickets_number": 732}, {"month": 2, "day": 12, "tickets_number": 500}, {"month": 2, "day": 13, "tickets_number": 694}, {"month": 2, "day": 14, "tickets_number": 672}, {"month": 2, "day": 15, "tickets_number": 660}, {"month": 2, "day": 16, "tickets_number": 733}, {"month": 2, "day": 17, "tickets_number": 653}, {"month": 2, "day": 18, "tickets_number": 845}, {"month": 2, "day": 19, "tickets_number": 768}, {"month": 2, "day": 20, "tickets_number": 755}, {"month": 2, "day": 21, "tickets_number": 731}, {"month": 2, "day": 22, "tickets_number": 800}, {"month": 2, "day": 23, "tickets_number": 838}, {"month": 2, "day": 24, "tickets_number": 782}, {"month": 2, "day": 25, "tickets_number": 861}, {"month": 2, "day": 26, "tickets_number": 746}, {"month": 2, "day": 27, "tickets_number": 770}, {"month": 2, "day": 28, "tickets_number": 838}, {"month": 2, "day": 29, "tickets_number": 222}, {"month": 3, "day": 1, "tickets_number": 835}, {"month": 3, "day": 2, "tickets_number": 837}, {"month": 3, "day": 3, "tickets_number": 861}, {"month": 3, "day": 4, "tickets_number": 846}, {"month": 3, "day": 5, "tickets_number": 708}, {"month": 3, "day": 6, "tickets_number": 823}, {"month": 3, "day": 7, "tickets_number": 759}, {"month": 3, "day": 8, "tickets_number": 857}, {"month": 3, "day": 9, "tickets_number": 864}, {"month": 3, "day": 10, "tickets_number": 856}, {"month": 3, "day": 11, "tickets_number": 821}, {"month": 3, "day": 12, "tickets_number": 821}, {"month": 3, "day": 13, "tickets_number": 792}, {"month": 3, "day": 14, "tickets_number": 791}, {"month": 3, "day": 15, "tickets_number": 779}, {"month": 3, "day": 16, "tickets_number": 799}, {"month": 3, "day": 17, "tickets_number": 828}, {"month": 3, "day": 18, "tickets_number": 798}, {"month": 3, "day": 19, "tickets_number": 821}, {"month": 3, "day": 20, "tickets_number": 790}, {"month": 3, "day": 21, "tickets_number": 757}, {"month": 3, "day": 22, "tickets_number": 721}, {"month": 3, "day": 23, "tickets_number": 712}, {"month": 3, "day": 24, "tickets_number": 768}, {"month": 3, "day": 25, "tickets_number": 733}, {"month": 3, "day": 26, "tickets_number": 821}, {"month": 3, "day": 27, "tickets_number": 797}, {"month": 3, "day": 28, "tickets_number": 818}, {"month": 3, "day": 29, "tickets_number": 709}, {"month": 3, "day": 30, "tickets_number": 800}, {"month": 3, "day": 31, "tickets_number": 803}, {"month": 4, "day": 1, "tickets_number": 1031}, {"month": 4, "day": 2, "tickets_number": 1019}, {"month": 4, "day": 3, "tickets_number": 999}, {"month": 4, "day": 4, "tickets_number": 976}, {"month": 4, "day": 5, "tickets_number": 897}, {"month": 4, "day": 6, "tickets_number": 930}, {"month": 4, "day": 7, "tickets_number": 938}, {"month": 4, "day": 8, "tickets_number": 912}, {"month": 4, "day": 9, "tickets_number": 1017}, {"month": 4, "day": 10, "tickets_number": 919}, {"month": 4, "day": 11, "tickets_number": 950}, {"month": 4, "day": 12, "tickets_number": 828}, {"month": 4, "day": 13, "tickets_number": 903}, {"month": 4, "day": 14, "tickets_number": 829}, {"month": 4, "day": 15, "tickets_number": 893}, {"month": 4, "day": 16, "tickets_number": 948}, {"month": 4, "day": 17, "tickets_number": 1008}, {"month": 4, "day": 18, "tickets_number": 874}, {"month": 4, "day": 19, "tickets_number": 830}, {"month": 4, "day": 20, "tickets_number": 882}, {"month": 4, "day": 21, "tickets_number": 922}, {"month": 4, "day": 22, "tickets_number": 843}, {"month": 4, "day": 23, "tickets_number": 979}, {"month": 4, "day": 24, "tickets_number": 857}, {"month": 4, "day": 25, "tickets_number": 848}, {"month": 4, "day": 26, "tickets_number": 774}, {"month": 4, "day": 27, "tickets_number": 850}, {"month": 4, "day": 28, "tickets_number": 836}, {"month": 4, "day": 29, "tickets_number": 870}, {"month": 4, "day": 30, "tickets_number": 895}, {"month": 5, "day": 1, "tickets_number": 974}, {"month": 5, "day": 2, "tickets_number": 969}, {"month": 5, "day": 3, "tickets_number": 902}, {"month": 5, "day": 4, "tickets_number": 865}, {"month": 5, "day": 5, "tickets_number": 930}, {"month": 5, "day": 6, "tickets_number": 864}, {"month": 5, "day": 7, "tickets_number": 951}, {"month": 5, "day": 8, "tickets_number": 937}, {"month": 5, "day": 9, "tickets_number": 835}, {"month": 5, "day": 10, "tickets_number": 802}, {"month": 5, "day": 11, "tickets_number": 867}, {"month": 5, "day": 12, "tickets_number": 841}, {"month": 5, "day": 13, "tickets_number": 865}, {"month": 5, "day": 14, "tickets_number": 868}, {"month": 5, "day": 15, "tickets_number": 749}, {"month": 5, "day": 16, "tickets_number": 847}, {"month": 5, "day": 17, "tickets_number": 793}, {"month": 5, "day": 18, "tickets_number": 827}, {"month": 5, "day": 19, "tickets_number": 766}, {"month": 5, "day": 20, "tickets_number": 851}, {"month": 5, "day": 21, "tickets_number": 803}, {"month": 5, "day": 22, "tickets_number": 814}, {"month": 5, "day": 23, "tickets_number": 766}, {"month": 5, "day": 24, "tickets_number": 725}, {"month": 5, "day": 25, "tickets_number": 700}, {"month": 5, "day": 26, "tickets_number": 710}, {"month": 5, "day": 27, "tickets_number": 749}, {"month": 5, "day": 28, "tickets_number": 745}, {"month": 5, "day": 29, "tickets_number": 755}, {"month": 5, "day": 30, "tickets_number": 734}, {"month": 5, "day": 31, "tickets_number": 631}, {"month": 6, "day": 1, "tickets_number": 931}, {"month": 6, "day": 2, "tickets_number": 927}, {"month": 6, "day": 3, "tickets_number": 914}, {"month": 6, "day": 4, "tickets_number": 887}, {"month": 6, "day": 5, "tickets_number": 864}, {"month": 6, "day": 6, "tickets_number": 862}, {"month": 6, "day": 7, "tickets_number": 810}, {"month": 6, "day": 8, "tickets_number": 805}, {"month": 6, "day": 9, "tickets_number": 851}, {"month": 6, "day": 10, "tickets_number": 813}, {"month": 6, "day": 11, "tickets_number": 836}, {"month": 6, "day": 12, "tickets_number": 821}, {"month": 6, "day": 13, "tickets_number": 835}, {"month": 6, "day": 14, "tickets_number": 736}, {"month": 6, "day": 15, "tickets_number": 760}, {"month": 6, "day": 16, "tickets_number": 859}, {"month": 6, "day": 17, "tickets_number": 747}, {"month": 6, "day": 18, "tickets_number": 801}, {"month": 6, "day": 19, "tickets_number": 773}, {"month": 6, "day": 20, "tickets_number": 778}, {"month": 6, "day": 21, "tickets_number": 678}, {"month": 6, "day": 22, "tickets_number": 803}, {"month": 6, "day": 23, "tickets_number": 825}, {"month": 6, "day": 24, "tickets_number": 792}, {"month": 6, "day": 25, "tickets_number": 808}, {"month": 6, "day": 26, "tickets_number": 798}, {"month": 6, "day": 27, "tickets_number": 770}, {"month": 6, "day": 28, "tickets_number": 729}, {"month": 6, "day": 29, "tickets_number": 750}, {"month": 6, "day": 30, "tickets_number": 784}, {"month": 7, "day": 1, "tickets_number": 950}, {"month": 7, "day": 2, "tickets_number": 947}, {"month": 7, "day": 3, "tickets_number": 776}, {"month": 7, "day": 4, "tickets_number": 400}, {"month": 7, "day": 5, "tickets_number": 641}, {"month": 7, "day": 6, "tickets_number": 783}, {"month": 7, "day": 7, "tickets_number": 804}, {"month": 7, "day": 8, "tickets_number": 829}, {"month": 7, "day": 9, "tickets_number": 803}, {"month": 7, "day": 10, "tickets_number": 777}, {"month": 7, "day": 11, "tickets_number": 766}, {"month": 7, "day": 12, "tickets_number": 719}, {"month": 7, "day": 13, "tickets_number": 765}, {"month": 7, "day": 14, "tickets_number": 823}, {"month": 7, "day": 15, "tickets_number": 794}, {"month": 7, "day": 16, "tickets_number": 1008}, {"month": 7, "day": 17, "tickets_number": 992}, {"month": 7, "day": 18, "tickets_number": 916}, {"month": 7, "day": 19, "tickets_number": 865}, {"month": 7, "day": 20, "tickets_number": 847}, {"month": 7, "day": 21, "tickets_number": 819}, {"month": 7, "day": 22, "tickets_number": 866}, {"month": 7, "day": 23, "tickets_number": 824}, {"month": 7, "day": 24, "tickets_number": 874}, {"month": 7, "day": 25, "tickets_number": 857}, {"month": 7, "day": 26, "tickets_number": 781}, {"month": 7, "day": 27, "tickets_number": 787}, {"month": 7, "day": 28, "tickets_number": 788}, {"month": 7, "day": 29, "tickets_number": 824}, {"month": 7, "day": 30, "tickets_number": 852}, {"month": 7, "day": 31, "tickets_number": 807}, {"month": 8, "day": 1, "tickets_number": 945}, {"month": 8, "day": 2, "tickets_number": 896}, {"month": 8, "day": 3, "tickets_number": 924}, {"month": 8, "day": 4, "tickets_number": 837}, {"month": 8, "day": 5, "tickets_number": 879}, {"month": 8, "day": 6, "tickets_number": 860}, {"month": 8, "day": 7, "tickets_number": 857}, {"month": 8, "day": 8, "tickets_number": 838}, {"month": 8, "day": 9, "tickets_number": 797}, {"month": 8, "day": 10, "tickets_number": 825}, {"month": 8, "day": 11, "tickets_number": 849}, {"month": 8, "day": 12, "tickets_number": 787}, {"month": 8, "day": 13, "tickets_number": 847}, {"month": 8, "day": 14, "tickets_number": 852}, {"month": 8, "day": 15, "tickets_number": 838}, {"month": 8, "day": 16, "tickets_number": 762}, {"month": 8, "day": 17, "tickets_number": 811}, {"month": 8, "day": 18, "tickets_number": 818}, {"month": 8, "day": 19, "tickets_number": 841}, {"month": 8, "day": 20, "tickets_number": 824}, {"month": 8, "day": 21, "tickets_number": 835}, {"month": 8, "day": 22, "tickets_number": 770}, {"month": 8, "day": 23, "tickets_number": 755}, {"month": 8, "day": 24, "tickets_number": 805}, {"month": 8, "day": 25, "tickets_number": 829}, {"month": 8, "day": 26, "tickets_number": 798}, {"month": 8, "day": 27, "tickets_number": 814}, {"month": 8, "day": 28, "tickets_number": 876}, {"month": 8, "day": 29, "tickets_number": 823}, {"month": 8, "day": 30, "tickets_number": 770}, {"month": 8, "day": 31, "tickets_number": 756}, {"month": 9, "day": 1, "tickets_number": 876}, {"month": 9, "day": 2, "tickets_number": 841}, {"month": 9, "day": 3, "tickets_number": 827}, {"month": 9, "day": 4, "tickets_number": 842}, {"month": 9, "day": 5, "tickets_number": 729}, {"month": 9, "day": 6, "tickets_number": 790}, {"month": 9, "day": 7, "tickets_number": 737}, {"month": 9, "day": 8, "tickets_number": 835}, {"month": 9, "day": 9, "tickets_number": 846}, {"month": 9, "day": 10, "tickets_number": 823}, {"month": 9, "day": 11, "tickets_number": 855}, {"month": 9, "day": 12, "tickets_number": 809}, {"month": 9, "day": 13, "tickets_number": 756}, {"month": 9, "day": 14, "tickets_number": 790}, {"month": 9, "day": 15, "tickets_number": 807}, {"month": 9, "day": 16, "tickets_number": 805}, {"month": 9, "day": 17, "tickets_number": 841}, {"month": 9, "day": 18, "tickets_number": 762}, {"month": 9, "day": 19, "tickets_number": 842}, {"month": 9, "day": 20, "tickets_number": 790}, {"month": 9, "day": 21, "tickets_number": 795}, {"month": 9, "day": 22, "tickets_number": 809}, {"month": 9, "day": 23, "tickets_number": 807}, {"month": 9, "day": 24, "tickets_number": 798}, {"month": 9, "day": 25, "tickets_number": 874}, {"month": 9, "day": 26, "tickets_number": 811}, {"month": 9, "day": 27, "tickets_number": 772}, {"month": 9, "day": 28, "tickets_number": 795}, {"month": 9, "day": 29, "tickets_number": 819}, {"month": 9, "day": 30, "tickets_number": 798}, {"month": 10, "day": 1, "tickets_number": 1059}, {"month": 10, "day": 2, "tickets_number": 925}, {"month": 10, "day": 3, "tickets_number": 882}, {"month": 10, "day": 4, "tickets_number": 826}, {"month": 10, "day": 5, "tickets_number": 902}, {"month": 10, "day": 6, "tickets_number": 825}, {"month": 10, "day": 7, "tickets_number": 817}, {"month": 10, "day": 8, "tickets_number": 758}, {"month": 10, "day": 9, "tickets_number": 789}, {"month": 10, "day": 10, "tickets_number": 722}, {"month": 10, "day": 11, "tickets_number": 731}, {"month": 10, "day": 12, "tickets_number": 716}, {"month": 10, "day": 13, "tickets_number": 762}, {"month": 10, "day": 14, "tickets_number": 793}, {"month": 10, "day": 15, "tickets_number": 856}, {"month": 10, "day": 16, "tickets_number": 858}, {"month": 10, "day": 17, "tickets_number": 818}, {"month": 10, "day": 18, "tickets_number": 814}, {"month": 10, "day": 19, "tickets_number": 834}, {"month": 10, "day": 20, "tickets_number": 830}, {"month": 10, "day": 21, "tickets_number": 871}, {"month": 10, "day": 22, "tickets_number": 827}, {"month": 10, "day": 23, "tickets_number": 757}, {"month": 10, "day": 24, "tickets_number": 817}, {"month": 10, "day": 25, "tickets_number": 746}, {"month": 10, "day": 26, "tickets_number": 755}, {"month": 10, "day": 27, "tickets_number": 801}, {"month": 10, "day": 28, "tickets_number": 781}, {"month": 10, "day": 29, "tickets_number": 819}, {"month": 10, "day": 30, "tickets_number": 775}, {"month": 10, "day": 31, "tickets_number": 684}, {"month": 11, "day": 1, "tickets_number": 929}, {"month": 11, "day": 2, "tickets_number": 892}, {"month": 11, "day": 3, "tickets_number": 922}, {"month": 11, "day": 4, "tickets_number": 786}, {"month": 11, "day": 5, "tickets_number": 846}, {"month": 11, "day": 6, "tickets_number": 834}, {"month": 11, "day": 7, "tickets_number": 818}, {"month": 11, "day": 8, "tickets_number": 757}, {"month": 11, "day": 9, "tickets_number": 807}, {"month": 11, "day": 10, "tickets_number": 808}, {"month": 11, "day": 11, "tickets_number": 538}, {"month": 11, "day": 12, "tickets_number": 766}, {"month": 11, "day": 13, "tickets_number": 818}, {"month": 11, "day": 14, "tickets_number": 827}, {"month": 11, "day": 15, "tickets_number": 766}, {"month": 11, "day": 16, "tickets_number": 837}, {"month": 11, "day": 17, "tickets_number": 779}, {"month": 11, "day": 18, "tickets_number": 760}, {"month": 11, "day": 19, "tickets_number": 835}, {"month": 11, "day": 20, "tickets_number": 727}, {"month": 11, "day": 21, "tickets_number": 749}, {"month": 11, "day": 22, "tickets_number": 569}, {"month": 11, "day": 23, "tickets_number": 656}, {"month": 11, "day": 24, "tickets_number": 600}, {"month": 11, "day": 25, "tickets_number": 631}, {"month": 11, "day": 26, "tickets_number": 563}, {"month": 11, "day": 27, "tickets_number": 542}, {"month": 11, "day": 28, "tickets_number": 612}, {"month": 11, "day": 29, "tickets_number": 655}, {"month": 11, "day": 30, "tickets_number": 684}, {"month": 12, "day": 1, "tickets_number": 888}, {"month": 12, "day": 2, "tickets_number": 846}, {"month": 12, "day": 3, "tickets_number": 829}, {"month": 12, "day": 4, "tickets_number": 760}, {"month": 12, "day": 5, "tickets_number": 717}, {"month": 12, "day": 6, "tickets_number": 677}, {"month": 12, "day": 7, "tickets_number": 704}, {"month": 12, "day": 8, "tickets_number": 682}, {"month": 12, "day": 9, "tickets_number": 643}, {"month": 12, "day": 10, "tickets_number": 728}, {"month": 12, "day": 11, "tickets_number": 670}, {"month": 12, "day": 12, "tickets_number": 611}, {"month": 12, "day": 13, "tickets_number": 620}, {"month": 12, "day": 14, "tickets_number": 644}, {"month": 12, "day": 15, "tickets_number": 576}, {"month": 12, "day": 16, "tickets_number": 642}, {"month": 12, "day": 17, "tickets_number": 607}, {"month": 12, "day": 18, "tickets_number": 621}, {"month": 12, "day": 19, "tickets_number": 548}, {"month": 12, "day": 20, "tickets_number": 614}, {"month": 12, "day": 21, "tickets_number": 566}, {"month": 12, "day": 22, "tickets_number": 547}, {"month": 12, "day": 23, "tickets_number": 534}, {"month": 12, "day": 24, "tickets_number": 444}, {"month": 12, "day": 25, "tickets_number": 165}, {"month": 12, "day": 26, "tickets_number": 434}, {"month": 12, "day": 27, "tickets_number": 532}, {"month": 12, "day": 28, "tickets_number": 517}, {"month": 12, "day": 29, "tickets_number": 578}, {"month": 12, "day": 30, "tickets_number": 520}, {"month": 12, "day": 31, "tickets_number": 527}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+<ol start="5" type="1">
+<li></li>
+</ol>
+<div id="1bd9fb6f" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>top_violations <span class="op">=</span> parking_tickets[<span class="st">'violation_description'</span>].value_counts().head(<span class="dv">5</span>).reset_index()</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>top_violations.columns <span class="op">=</span> [<span class="st">'violation_description'</span>, <span class="st">'count'</span>]</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>subset_tickets <span class="op">=</span> parking_tickets[parking_tickets[<span class="st">'violation_description'</span>].isin(top_violations[<span class="st">'violation_description'</span>])]</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>tickets_over_time <span class="op">=</span> subset_tickets.groupby([subset_tickets[<span class="st">'issue_date'</span>].dt.year, <span class="st">'violation_description'</span>]).size().reset_index(name<span class="op">=</span><span class="st">'tickets_number'</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>alt.Chart(tickets_over_time).mark_rect().encode(</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    alt.X(<span class="st">'issue_date:O'</span>).title(<span class="st">"Year"</span>),</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    alt.Y(<span class="st">'violation_description:N'</span>).title(<span class="st">"Violation Type"</span>).axis(labelFontSize<span class="op">=</span><span class="dv">7</span>),</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    alt.Color(<span class="st">'tickets_number:Q'</span>).title(<span class="st">"Number of Tickets"</span>),</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        alt.Tooltip(<span class="st">'issue_date:O'</span>, title<span class="op">=</span><span class="st">"Year"</span>),</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        alt.Tooltip(<span class="st">'violation_description:N'</span>, title<span class="op">=</span><span class="st">"Violation"</span>),</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>        alt.Tooltip(<span class="st">'tickets_number:Q'</span>, title<span class="op">=</span><span class="st">"Number of Tickets"</span>)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="dv">350</span>,</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">200</span>,</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Number of Tickets Issued Over Time for Top 5 Violations"</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+
+<style>
+  #altair-viz-00c36482a3cf45e5ad56a19acbc0cb7d.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-00c36482a3cf45e5ad56a19acbc0cb7d.vega-embed details,
+  #altair-viz-00c36482a3cf45e5ad56a19acbc0cb7d.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-00c36482a3cf45e5ad56a19acbc0cb7d"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-00c36482a3cf45e5ad56a19acbc0cb7d") {
+      outputDiv = document.getElementById("altair-viz-00c36482a3cf45e5ad56a19acbc0cb7d");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.20.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.20.1"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-ad9f429f0043c8fb472c1faef8b3f28d"}, "mark": {"type": "rect"}, "encoding": {"color": {"field": "tickets_number", "title": "Number of Tickets", "type": "quantitative"}, "tooltip": [{"field": "issue_date", "title": "Year", "type": "ordinal"}, {"field": "violation_description", "title": "Violation", "type": "nominal"}, {"field": "tickets_number", "title": "Number of Tickets", "type": "quantitative"}], "x": {"field": "issue_date", "title": "Year", "type": "ordinal"}, "y": {"axis": {"labelFontSize": 7}, "field": "violation_description", "title": "Violation Type", "type": "nominal"}}, "height": 200, "title": "Number of Tickets Issued Over Time for Top 5 Violations", "width": 350, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-ad9f429f0043c8fb472c1faef8b3f28d": [{"issue_date": 2007, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 3071}, {"issue_date": 2007, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4160}, {"issue_date": 2007, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 2406}, {"issue_date": 2007, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 2718}, {"issue_date": 2007, "violation_description": "STREET CLEANING", "tickets_number": 13}, {"issue_date": 2008, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 432}, {"issue_date": 2008, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4543}, {"issue_date": 2008, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 2104}, {"issue_date": 2008, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 2441}, {"issue_date": 2008, "violation_description": "STREET CLEANING", "tickets_number": 3255}, {"issue_date": 2009, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4604}, {"issue_date": 2009, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1942}, {"issue_date": 2009, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 2335}, {"issue_date": 2009, "violation_description": "STREET CLEANING", "tickets_number": 2628}, {"issue_date": 2010, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4254}, {"issue_date": 2010, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1628}, {"issue_date": 2010, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 2050}, {"issue_date": 2010, "violation_description": "STREET CLEANING", "tickets_number": 2664}, {"issue_date": 2011, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4345}, {"issue_date": 2011, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1593}, {"issue_date": 2011, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 1908}, {"issue_date": 2011, "violation_description": "STREET CLEANING", "tickets_number": 2810}, {"issue_date": 2012, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 3013}, {"issue_date": 2012, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 3797}, {"issue_date": 2012, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1527}, {"issue_date": 2012, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 1987}, {"issue_date": 2012, "violation_description": "STREET CLEANING", "tickets_number": 2839}, {"issue_date": 2013, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 3173}, {"issue_date": 2013, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4036}, {"issue_date": 2013, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1523}, {"issue_date": 2013, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 1888}, {"issue_date": 2013, "violation_description": "STREET CLEANING", "tickets_number": 3004}, {"issue_date": 2014, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 2434}, {"issue_date": 2014, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4363}, {"issue_date": 2014, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1625}, {"issue_date": 2014, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 1777}, {"issue_date": 2014, "violation_description": "STREET CLEANING", "tickets_number": 2904}, {"issue_date": 2015, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 2661}, {"issue_date": 2015, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4223}, {"issue_date": 2015, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1642}, {"issue_date": 2015, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 1910}, {"issue_date": 2015, "violation_description": "STREET CLEANING", "tickets_number": 2939}, {"issue_date": 2016, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 2436}, {"issue_date": 2016, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4459}, {"issue_date": 2016, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1655}, {"issue_date": 2016, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 1888}, {"issue_date": 2016, "violation_description": "STREET CLEANING", "tickets_number": 2673}, {"issue_date": 2017, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 2393}, {"issue_date": 2017, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 2027}, {"issue_date": 2017, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1546}, {"issue_date": 2017, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 2099}, {"issue_date": 2017, "violation_description": "STREET CLEANING", "tickets_number": 2539}, {"issue_date": 2018, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 987}, {"issue_date": 2018, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 562}, {"issue_date": 2018, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 682}, {"issue_date": 2018, "violation_description": "STREET CLEANING", "tickets_number": 444}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+<ol start="6" type="1">
+<li></li>
+</ol>
+<p>Number of Tickets Issued Over Time:</p>
+<ul>
+<li>Pros: It provides a clear view of how the number of tickets issued fluctuates across the years. It is particularly useful for identifying long-term trends or patterns in ticket issuance.</li>
+<li>Cons: It lacks granularity for detailed insights into variations within the year, and it doesn’t show any breakdown by violation types or other dimensions, which makes it less informative for understanding specific categories.</li>
+</ul>
+<p>Number of Tickets Issued by Month and Day:</p>
+<ul>
+<li>Pros: This plot is great for identifying seasonal trends or patterns in ticket issuance throughout the year. It can easily highlight which months or days have higher activity, so it gives a more detailed temporal analysis than the step chart.</li>
+<li>Cons: It doesn’t differentiate between types of violations or provide information about the total number of tickets over time. It focuses on the distribution within a single year but lacks a broader overview.</li>
+</ul>
+<p>Lasagna Plot (Tickets by Violation Type Over Time):</p>
+<ul>
+<li>Pros: This plot effectively compares multiple violation types over time, which shows how the prevalence of different tickets has changed. It is helpful for understanding trends specific to certain violation types and provides a good level of granularity by breaking down the data further.</li>
+<li>Cons: It can be a bit harder to interpret compared to the other two due to the complexity of tracking multiple categories. It might also be overwhelming if there are more than five categories to compare.</li>
+</ul>
+<ol start="7" type="1">
+<li></li>
+</ol>
+<p>If the lesson I want the reader to take away is that the enforcement of violations is not evenly distributed over time, the heatmap (tickets by month and day) would be the best plot.</p>
+<p>First, the heatmap provides a clear, detailed view of how ticket issuance varies not just by year but also by month and day, making it easy to spot specific periods of higher or lower enforcement activity.</p>
+<p>Second, the color gradients in the heatmap naturally draw attention to areas with higher or lower ticket counts, helping to emphasize the uneven distribution of enforcement over time.</p>
+<p>Third, by using the heatmap, I can easily demonstrate seasonal or daily patterns that may be less obvious in other types of charts. This would make it clear if certain months or days are more heavily targeted than others.</p>
+<p>While the step chart gives a broad yearly view and the lasagna plot shows ticket types over time, neither provides the same level of temporal detail or clarity about the specific days or months when enforcement is higher or lower. Thus, the heatmap is most effective for emphasizing an uneven distribution over time.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

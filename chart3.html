@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-a068f39f54de65f3069a55265a3d92b1"}, "mark": {"type": "area", "color": "lightblue", "interpolate": "step-after", "line": true}, "encoding": {"x": {"field": "year", "type": "quantitative"}, "y": {"field": "tickets_number", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-a068f39f54de65f3069a55265a3d92b1": [{"year": 2007, "tickets_number": 29252}, {"year": 2008, "tickets_number": 28713}, {"year": 2009, "tickets_number": 27335}, {"year": 2010, "tickets_number": 25324}, {"year": 2011, "tickets_number": 24898}, {"year": 2012, "tickets_number": 24406}, {"year": 2013, "tickets_number": 25983}, {"year": 2014, "tickets_number": 24552}, {"year": 2015, "tickets_number": 24227}, {"year": 2016, "tickets_number": 22643}, {"year": 2017, "tickets_number": 22364}, {"year": 2018, "tickets_number": 7761}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

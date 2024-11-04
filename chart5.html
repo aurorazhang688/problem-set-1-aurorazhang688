@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-ad9f429f0043c8fb472c1faef8b3f28d"}, "mark": {"type": "rect"}, "encoding": {"color": {"field": "tickets_number", "title": "Number of Tickets", "type": "quantitative"}, "tooltip": [{"field": "issue_date", "title": "Year", "type": "ordinal"}, {"field": "violation_description", "title": "Violation", "type": "nominal"}, {"field": "tickets_number", "title": "Number of Tickets", "type": "quantitative"}], "x": {"field": "issue_date", "title": "Year", "type": "ordinal"}, "y": {"axis": {"labelFontSize": 7}, "field": "violation_description", "title": "Violation Type", "type": "nominal"}}, "height": 300, "title": "Number of Tickets Issued Over Time for Top 5 Violations", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-ad9f429f0043c8fb472c1faef8b3f28d": [{"issue_date": 2007, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 3071}, {"issue_date": 2007, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4160}, {"issue_date": 2007, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 2406}, {"issue_date": 2007, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 2718}, {"issue_date": 2007, "violation_description": "STREET CLEANING", "tickets_number": 13}, {"issue_date": 2008, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 432}, {"issue_date": 2008, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4543}, {"issue_date": 2008, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 2104}, {"issue_date": 2008, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 2441}, {"issue_date": 2008, "violation_description": "STREET CLEANING", "tickets_number": 3255}, {"issue_date": 2009, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4604}, {"issue_date": 2009, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1942}, {"issue_date": 2009, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 2335}, {"issue_date": 2009, "violation_description": "STREET CLEANING", "tickets_number": 2628}, {"issue_date": 2010, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4254}, {"issue_date": 2010, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1628}, {"issue_date": 2010, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 2050}, {"issue_date": 2010, "violation_description": "STREET CLEANING", "tickets_number": 2664}, {"issue_date": 2011, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4345}, {"issue_date": 2011, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1593}, {"issue_date": 2011, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 1908}, {"issue_date": 2011, "violation_description": "STREET CLEANING", "tickets_number": 2810}, {"issue_date": 2012, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 3013}, {"issue_date": 2012, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 3797}, {"issue_date": 2012, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1527}, {"issue_date": 2012, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 1987}, {"issue_date": 2012, "violation_description": "STREET CLEANING", "tickets_number": 2839}, {"issue_date": 2013, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 3173}, {"issue_date": 2013, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4036}, {"issue_date": 2013, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1523}, {"issue_date": 2013, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 1888}, {"issue_date": 2013, "violation_description": "STREET CLEANING", "tickets_number": 3004}, {"issue_date": 2014, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 2434}, {"issue_date": 2014, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4363}, {"issue_date": 2014, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1625}, {"issue_date": 2014, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 1777}, {"issue_date": 2014, "violation_description": "STREET CLEANING", "tickets_number": 2904}, {"issue_date": 2015, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 2661}, {"issue_date": 2015, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4223}, {"issue_date": 2015, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1642}, {"issue_date": 2015, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 1910}, {"issue_date": 2015, "violation_description": "STREET CLEANING", "tickets_number": 2939}, {"issue_date": 2016, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 2436}, {"issue_date": 2016, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 4459}, {"issue_date": 2016, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1655}, {"issue_date": 2016, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 1888}, {"issue_date": 2016, "violation_description": "STREET CLEANING", "tickets_number": 2673}, {"issue_date": 2017, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 2393}, {"issue_date": 2017, "violation_description": "EXPIRED PLATES OR TEMPORARY REGISTRATION", "tickets_number": 2027}, {"issue_date": 2017, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 1546}, {"issue_date": 2017, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 2099}, {"issue_date": 2017, "violation_description": "STREET CLEANING", "tickets_number": 2539}, {"issue_date": 2018, "violation_description": "EXP. METER NON-CENTRAL BUSINESS DISTRICT", "tickets_number": 987}, {"issue_date": 2018, "violation_description": "PARKING/STANDING PROHIBITED ANYTIME", "tickets_number": 562}, {"issue_date": 2018, "violation_description": "RESIDENTIAL PERMIT PARKING", "tickets_number": 682}, {"issue_date": 2018, "violation_description": "STREET CLEANING", "tickets_number": 444}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
